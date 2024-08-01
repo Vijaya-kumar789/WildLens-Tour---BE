@@ -80,7 +80,7 @@ const userController = {
             res.cookie('token' , token, {
                 httpOnly : true,
                 secure:true,
-                sameSite : 'none',
+                sameSite : 'srict',
                 expires : new Date (Date.now() +24 * 60 * 60 * 1000) // 24h expiration
             });
 
