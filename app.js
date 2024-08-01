@@ -13,6 +13,7 @@ const app = express();
 
 //import the cookie parser
 const cookie = require('cookie-parser');
+const { CLIENT_SITE_URL } = require('./utils/config');
 
 //import the cors
 const cors = require('cors');
@@ -24,7 +25,7 @@ const cookieParser = require('cookie-parser');
 
 //use the cors middleware
 app.use(cors({
-    origin : 'https://tubular-horse-ae26a5.netlify.app/',
+    origin : CLIENT_SITE_URL ,
     credentials : true,
 }));
 
