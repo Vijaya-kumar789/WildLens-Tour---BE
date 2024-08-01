@@ -16,7 +16,6 @@ tourPackageRouter.get("/" , tourPackageController.listTours);
 tourPackageRouter.get("/:id" , tourPackageController.getTourById);
 tourPackageRouter.put("/:id" ,auth.isAuth ,auth.isAdmin , tourPackageController.updateTourById);
 tourPackageRouter.delete("/:id" ,auth.isAuth ,auth.isAdmin , tourPackageController.deleteTourById);
-tourPackageRouter.put("/:id/availability" ,auth.isAuth ,auth.isAdmin , tourPackageController.tourAvailability);
 tourPackageRouter.get("/search/getTourBySearch"  , tourPackageController.getTourBySearch);
 tourPackageRouter.get("/search/getAvailableTour"  , tourPackageController.getAvailableTour);
 tourPackageRouter.get("/search/getTourCount"  , tourPackageController.getTourCount);

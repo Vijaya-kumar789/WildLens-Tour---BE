@@ -11,8 +11,6 @@ const bookingRouter = express.Router();
 //define the endpoints
 bookingRouter.post("/checkout-session/:id" , auth.isAuth , bookingController.getCheckoutSession)
 bookingRouter.get("/user" , auth.isAuth , bookingController.getUserBookings)
-bookingRouter.get("/:id" , auth.isAuth , bookingController.getBookingsById)
-bookingRouter.delete("/:id" , auth.isAuth , bookingController.cancelBooking)
 bookingRouter.get("/" , auth.isAuth ,auth.isAdmin, bookingController.getAllBookings)
 
 

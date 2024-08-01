@@ -90,27 +90,7 @@ const userController = {
             res.status(500).json({ message: error.message });
         }
     },
-
-    //get the current logged in user
-    profile : async (req,res) => { 
-        try {
-            // get the user id in req object
-            const userId = req.userId;
-
-            // find the user Id from the database
-            const user = await User.findById(userId).select("-passwordHash -__v -_id"); 
-
-            //if the user does not exists, return a error message
-            if (!user) {
-                return res.status(400).json({ message: "user not found" })
-            }
-            // if the user is exists return the user details
-             res.status(200).json(user);
-
-        } catch (error) {
-            res.status(500).json({ message: error.message });
-        }
-    },
+    
     //logout the user
     logout: async(req,res) => {
         try {
@@ -124,47 +104,6 @@ const userController = {
             res.status(500).json({ message: error.message });
         }
     },
-    //define the userUpdate method
-    updateUserById: async (req, res) => {
-        try {
-            // get the tour id in req params
-            const userId = req.params.id;
-
-            //get the updated input form req body
-            const updatedUser = await User.findByIdAndUpdate(userId, req.body, { new: true });
-
-            //if the tour does not exists, return a error message
-            if (!updatedUser) {
-                return res.status(404).json({ message: "User not found" })
-            }
-
-            //return the success message
-            res.status(200).json({ message: "User Details Updated Successfully", user: updatedUser })
-
-        } catch (error) {
-            res.status(500).json({ message: error.message });
-        }
-    },
-    deleteUserById: async (req, res) => {
-        try {
-            // get the user id in req params
-            const userId = req.params.id;
-
-            //find the user id database
-            const deleteUser = await User.findByIdAndDelete(userId);
-
-            //if the user does not exists, return a error message
-            if (!deleteUser) {
-                return res.status(400).json({ message: " User not found to delete" })
-            }
-            //return the success message
-            res.status(200).json({ message: "User successfully Deleted" });
-
-        } catch (error) {
-            res.status(500).json({ message: error.message });
-        }
-    },
 }
-
 // export the controller
 module.exports = userController;

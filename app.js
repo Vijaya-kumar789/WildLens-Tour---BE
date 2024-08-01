@@ -6,9 +6,7 @@ const userRouter = require('./routes/userRoutes');
 const adminRouter = require("./routes/adminRoutes");
 const tourPackageRouter = require('./routes/tourPackageRoutes')
 const bookingRouter = require('./routes/bookingRoutes');
-const supAndFeedRouter = require('./routes/sup&FeedControllers');
 const reviewRouter = require('./routes/reviewRouters');
-const guideRouter = require('./routes/guideRouter');
 
 //create the express app
 const app = express();
@@ -42,11 +40,8 @@ app.use(express.json());
 //define the endpoints
 app.use('/api/v1/users',userRouter);
 app.use('/api/v1/admin',adminRouter);
-
 app.use('/api/v1/bookings',bookingRouter);
-app.use('/api/v1/',supAndFeedRouter);
 app.use('/api/v1/',reviewRouter);
-// app.use('/api/v1/guides',guideRouter)
 app.use('/api/v1/tours',tourPackageRouter);
 
 //export the app module

@@ -4,10 +4,7 @@ const mongoose = require("mongoose");
 
 //create the schema for booking
 const bookingSchema = new mongoose.Schema({
-    // tourId : {
-    //     type :mongoose.Schema.Types.ObjectId,
-    //     ref : "TourPackage"
-    // },
+    
     userId : {
         type : String
     },

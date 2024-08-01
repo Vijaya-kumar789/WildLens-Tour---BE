@@ -17,10 +17,7 @@ userRouter.post('/register',userController.register);
 userRouter.post("/login",userController.login);
 
 //authenticated route
-userRouter.get("/profile", auth.isAuth, userController.profile);
 userRouter.get("/logout", auth.isAuth , userController.logout);
-userRouter.put("/:id", auth.isAuth, userController.updateUserById);
-userRouter.delete("/:id", auth.isAuth, userController.deleteUserById);
 
 
 //export the router

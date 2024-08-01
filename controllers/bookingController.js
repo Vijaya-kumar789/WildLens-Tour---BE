@@ -95,50 +95,14 @@ const bookingController = {
             const userBooking = await Booking.find({
                 userId: userId
             }).select('-__v -phone')
-            
+
             //return the success message
             res.status(200).json({ userBooking })
         } catch (error) {
             res.status(500).json({ message: error.message })
         }
     },
-    getBookingsById: async (req, res) => {
-        try {
-            // get the booking id in req params
-            const bookingId = req.params.id;
-
-            //find the user bookings in database
-            const booking = await Booking.findById(bookingId).select("-__v")
-
-            //if the booking does not exists, return a error message
-            if (!booking) {
-                return res.status(400).json({ message: "Booking not found" })
-            }
-            //return the success message
-            res.status(200).json({ booking })
-        } catch (error) {
-            res.status(500).json({ message: error.message })
-        }
-    },
-    cancelBooking: async (req, res) => {
-        try {
-            // get the booking id in req params
-            const bookingId = req.params.id;
-
-            //find the booking id database
-            const cancelBooking = await Booking.findByIdAndDelete(bookingId);
-
-            //if the tour does not exists, return a error message
-            if (!cancelBooking) {
-                return res.status(400).json({ message: " Booking not found to cancel" })
-            }
-            //return the success message
-            res.status(200).json({ message: "Booking Cancelled successfully" });
-
-        } catch (error) {
-            res.status(500).json({ message: error.message })
-        }
-    },
+    
     getAllBookings: async (req, res) => {
         try {
 

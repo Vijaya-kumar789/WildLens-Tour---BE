@@ -48,7 +48,7 @@ const auth = {
 
             //if the user is not found then return a error message
             if(!user) {
-                return res.status(400).json({ message: "user not found" });
+                return res.status(400).json({ message: "User not found" });
             }
             //check if the user is admin and return the error message
             if(user.role !== "admin") {
@@ -61,35 +61,6 @@ const auth = {
         }
     }
 }
-    // isGuide: async(req, res, next) => {
-    //     try {
-    //         //get the token from req cookies
-    //         const token = req.cookies.token;
-
-    //         //if the token is not present , return a error message
-    //         if (!token) {
-    //             return res.status(400).json({ message: "Unauthorized please Login" });
-    //         }
-
-    //         //if the token is present verify the token
-    //         try {
-    //             const decodedToken = jwt.verify(token, config.JWT_SECRET);
-
-    //             //get the userId form the decoded Token
-    //             // attached to the req object
-    //             req.guideId = decodedToken.id;
-
-    //             //call the next middleware
-    //             next();
-
-    //         } catch (error) {
-    //             res.status(400).json({ message: "invalid token" });
-    //         }
-    //     } catch (error) {
-    //         res.status(500).json({ message: error.message });
-    //     }
-    // },
-// }
-
+   
 //export the auth middleware
 module.exports = auth;

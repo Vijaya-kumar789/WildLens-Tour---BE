@@ -58,28 +58,6 @@ const reviewController = {
             res.status(500).json({ message: error.message })
       }
     },
-    deleteReview : async (req,res) => {
-        try {
-            // get the tour id from the params
-            const tourId = req.params.id;
-            
-
-            const userId = req.userId;
-
-            const findReviewID = await Review.findOneAndDelete({$and:[{userId : userId},{tourId :tourId}]})
-            
-            //const d = await Review.findByIdAndDelete(findReviewID)
-            if(!findReviewID ) {
-                return res.status(400).json({message : "Only Review Owner can delete"})
-              }
-            
-              res.status(200).json({message : "Review deleted successfully"})
-              
-        } catch (error) {
-            res.status(500).json({message: error.message })
-        }
-    }
 }
-
 // export the module
 module.exports = reviewController;

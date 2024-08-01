@@ -92,36 +92,7 @@ const tourPackageController = {
             res.status(500).json({ message: error.message });
         }
     },
-    tourAvailability: async (req, res) => {
-        try {
-            // get the tour id in req params
-            const tourId = req.params.id;
-
-            // get the input from the req body
-            const { isAvailable } = req.body;
-
-            //find the tour id in database
-            const tour = await TourPackage.findById(tourId).select("-__v");
-
-
-            //if the tour does not exists, return a error message
-            if (!tour) {
-                return res.status(400).json({ message: "Tour not found" })
-            }
-            //update the tour 
-            if (isAvailable) tour.isAvailable = isAvailable;
-
-            //save the tour details
-            const updatedTourAvailability = await tour.save();
-
-            //return the success message
-            res.status(200).json({ message: "Tour availability Updated Successfully", TourPackage: updatedTourAvailability })
-
-        } catch (error) {
-            res.status(500).json({ message: error.message });
-        }
-    },
-
+    
     getTourBySearch: async (req, res) => {
 
         const city = new RegExp(req.query.city, 'i')

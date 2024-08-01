@@ -11,7 +11,6 @@ const reviewRouter = express.Router();
 
 reviewRouter.post("/review/:id", auth.isAuth , reviewController.addReview);
 reviewRouter.get("/reviews/:id", auth.isAuth , reviewController.getReview);
-reviewRouter.delete("/reviews/:id", auth.isAuth , reviewController.deleteReview);
 
 //export the module
 module.exports = reviewRouter;
