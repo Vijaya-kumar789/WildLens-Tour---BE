@@ -24,7 +24,7 @@ const cookieParser = require('cookie-parser');
 
 //use the cors middleware
 app.use(cors({
-    origin : 'http://localhost:5174',
+    origin : 'https://tubular-horse-ae26a5.netlify.app/',
     credentials : true,
 }));
 
