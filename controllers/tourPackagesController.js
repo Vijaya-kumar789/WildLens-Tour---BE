@@ -97,11 +97,11 @@ const tourPackageController = {
 
         const city = new RegExp(req.query.city, 'i')
         const distance =  parseInt(req.query.distance,)
-        const maxGroupSize =  parseInt(req.query.maxGroupSize, )
+        const price =  parseInt(req.query.price, )
 
         try {
 
-            const tours = await TourPackage.find({ city, distance: { $gte: distance }, maxGroupSize: { $gte: maxGroupSize } }).populate('reviews').select("-__v");
+            const tours = await TourPackage.find({ city, distance: { $gte: distance }, price: { $gte: price } }).populate('reviews').select("-__v");
 
         res.status(200).json( {data:tours} );
 
